@@ -1,0 +1,9 @@
+*~
+*.swn
+*.swm
+*.swo
+*.swp
+*.swk
+*.log
+*.log.*
+venv
