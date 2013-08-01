@@ -24,6 +24,7 @@ def allowed_file(filename):
 def show_index():
    return render_template('index.html')
 
+# subir imagen
 @app.route('/',methods=['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
@@ -34,10 +35,12 @@ def upload_file():
          return redirect(url_for('show_file',
             filename=filename))
 
+# obtener imagen
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
+# mostrar imagen
 @app.route('/show/<filename>')
 def show_file(filename):
    image = "http://127.0.0.1:5000/uploads/"+filename
