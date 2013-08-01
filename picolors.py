@@ -31,13 +31,18 @@ def upload_file():
       if file and allowed_file(file.filename):
          filename = secure_filename(file.filename)
          file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-         return redirect(url_for('uploaded_file',
+         return redirect(url_for('show_file',
             filename=filename))
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-   return send_from_directory(app.config['UPLOAD_FOLDER'],
-         filename)
+    return send_from_directory(UPLOAD_FOLDER, filename)
+
+@app.route('/show/<filename>')
+def show_file(filename):
+   image = "http://127.0.0.1:5000/uploads/"+filename
+   print image
+   return render_template('view_image.html',image=image)
 
 if __name__=='__main__':
    app.run()
