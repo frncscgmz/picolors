@@ -59,7 +59,8 @@ def show_file(filename):
    colormap = colorz(image_local)
    for key in colormap:
       print key
-   return render_template('view_image.html',image=image)
+   return render_template('view_image.html'
+         ,image=image,colormap=colormap)
 
 # obtener 3 colores principales de imagen
 def colorz(filename, n=3):

@@ -1,6 +1,9 @@
 {% extends "index.html" %}
 {% block body %}
 {% if image %}
-<img src="{{image}}"></img>
+<img src="{{image}}" height="500" width="500"></img>
+{% for key in colormap: %}
+<div style="width: 100px;height: 100px;background:{{ key }};display:inline-block"></div>
+{% endfor %}
 {% endif %}
 {% endblock %}
